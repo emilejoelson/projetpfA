@@ -3,19 +3,19 @@ import { Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { tokens } from "../theme";
-
+import "./HomeCard.css";
 const HomeCard = ({ name, image, category, price, loading,id }) => {
   ///  Theme 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
  
   return (
-    <div className="bg-slate-800 shadow-md p-2 hover:scale-105 transition-all  rounded min-w-[150px]">
+    <div className=" homecard bg-slate-800 shadow-md p-2 hover:scale-105 transition-all  rounded min-w-[150px]">
       {name ? (
         <>
         <Link to={`/menu/${id}`} onClick={()=>window.scrollTo({top:"0",behavior : "smooth"})} >
           <div className="w-40 min-h-[150px]">
-            <img src={image} className="h-full hover:scale-105 transition-all w-full" />
+            <img src={image} className="h-[160px] hover:scale-105 transition-all w-full" />
           </div>
           <Typography variant="h5"
             fontWeight="bold"

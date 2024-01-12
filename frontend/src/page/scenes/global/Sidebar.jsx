@@ -16,6 +16,9 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import ChatIcon from '@mui/icons-material/Chat';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 import { useSelector } from "react-redux";
 import { HiOutlineUserCircle } from "react-icons/hi";
 
@@ -153,21 +156,31 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+             <Item
+              title="Gestion de Deal du jour "
+              to="/admin/managedealdujour"
+              icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
-              title="Gestion de l'utilisateur "
+              title="Utilisateur en ligne "
               to="/admin/manageuser"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
+            
             <Item
-              title="Gestion de commande"
-              to="/commande"
-              icon={<ContactsOutlinedIcon />}
+              title="Client local "
+              to="/admin/manageuserlocal "
+              icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+         
+
+            
 
             <Typography
               variant="h6"
@@ -177,14 +190,15 @@ const Sidebar = () => {
               Pages
             </Typography>
             <Item
-              title="Profil "
-              
-              icon={<PersonOutlinedIcon />}
+              title="Whatsapp "
+              to="/admin/managewhatsapp"
+              icon={<WhatsAppIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Calendrier"
+              title="Devis"
+              to ="/admin/managedevis"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

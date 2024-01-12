@@ -8,15 +8,12 @@ import enterpriseLogo from '../../assest/p2M.png';
 const Facture = () => {
   const productCartItem = useSelector((state) => state.product.cartItem);
   const user = useSelector((state) => state.user);
-
-  // Theme
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const totalPrice = productCartItem.reduce((acc, curr) => acc + parseInt(curr.total), 0);
   const totalQty = productCartItem.reduce((acc, curr) => acc + parseInt(curr.qty), 0);
 
-  // Ref for PDF viewer
   const printRef = useRef(null);
 
   const handlePrint = () => {

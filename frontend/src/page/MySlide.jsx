@@ -7,8 +7,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import {EffectConverflow,Pagination,Navigation}  from 'swiper';
-
 import slide_image_1 from "../assest/images/img_1.png";
 import slide_image_2 from "../assest/images/img_2.jpg";
 import slide_image_3 from "../assest/images/img_3.png";

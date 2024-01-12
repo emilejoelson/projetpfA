@@ -1,0 +1,239 @@
+/* Heart.css */
+
+
+  
+  .heart::before,
+  .heart::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+   /*  background-color: gray; */
+    position: absolute;
+  }
+  /*
+  .heart::before {
+    top: -50px;
+    border-radius: 100px ;
+    background-color: #f6e05e;
+    content: "S";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60px;
+  }*/
+  
+  
+  .heart::after {
+    top: 0;
+    left: 50px;
+  }
+  
+  /* Heartk*/
+  .heartk {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    background-color: white;
+    position: relative;
+    transform: rotate(-45deg);
+    border-radius: 0 0 0 30px  ;
+    margin: 20px;
+    top: 20px;
+  }
+  
+  .heartk::before,
+  .heartk::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+   /*  background-color: gray; */
+    position: absolute;
+  }
+  
+  .heartk::before {
+    top: -50px;
+    border-radius: 200px ;
+    background-color: #f6e05e;
+    content: "S";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60px;
+  }
+  
+  
+  .heartk::after {
+    top: 0;
+    left: 50px;
+  }
+  
+
+  /* Heart.css */
+  .heart {
+    width: 600px; /* Adjust the size as needed */
+    height: 140px; /* Adjust the size as needed */
+    background-color: white;
+    position: relative;
+    transform: rotate(-45deg);
+    border-radius: 0 0 0 30px  ;
+    margin: 20px;
+    top: 20px;
+  }
+.hearta {
+  width: 600px; /* Adjust the size as needed */
+  height: 140px; /* Adjust the size as needed */
+    background-color: white;
+    position: relative;
+    transform: rotate(135deg);
+    border-radius: 0 0 0 30px  ;
+    margin: 20px;
+    top:400px;
+    left: -240px;
+  }
+  
+  .hearta::before,
+  .hearta::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    /* background-color: gray;
+    border-radius: 100px; */
+    position: absolute;
+  }
+  
+  /*
+  .hearta::before {
+    top: -50px;
+    border-radius: 100px ;
+    background-color: #f6e05e;
+    content: "S";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60px;
+  }*/
+  
+  .hearta::after {
+    top: 0;
+    left: 50px;
+  }
+  
+
+  .heartak {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    background-color: white;
+    position: relative;
+    transform: rotate(135deg);
+    border-radius: 0 0 0 30px  ;
+    margin: 20px;
+    top:400px;
+    left: -240px;
+  }
+  
+  .heartak::before,
+  .heartak::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    /* background-color: gray;
+    border-radius: 100px; */
+    position: absolute;
+  }
+  
+  .heartak::before {
+    top: -50px;
+    border-radius: 100px ;
+    background-color: #f6e05e;
+    content: "S";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60px;
+  }
+  
+  .heartak::after {
+    top: 0;
+    left: 50px;
+  }
+  
+
+
+@media screen and (max-width: 768px) {
+  
+  .dflex {
+     direction: flex;
+     gap: 50px;
+  }
+  .heart {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 14em;
+    left: 15px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .heart::before {
+    top: -25px;
+    font-size: 30px;
+  }
+
+  .heartk {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 14em;
+    left: 240px;
+  }
+
+  .heartk::before,
+  .heartk::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .heartk::before {
+    top: -25px;
+    font-size: 30px;
+  }
+
+  .hearta {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top:38em;
+    left: 20px;
+  }
+
+  .hearta::before,
+  .hearta::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hearta::before {
+    top: -25px;
+    font-size: 30px;
+  }
+
+  .heartak {
+    width: 60px;
+    height: 60px;
+    top:38em;
+    left: 250px;
+    position: absolute;
+  }
+
+  .heartak::before,
+  .heartak::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .heartak::before {
+    top: -25px;
+    font-size: 30px;
+  }
+}
+
+  
+
+ 
+  

@@ -1,0 +1,508 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.sani{
+  color: #d39314fb;
+}
+/*Offre*/
+.offer{
+  margin-top: 1.5em;
+  margin-left: 55em;
+}
+.prevs {
+  margin-left: 14.9em;
+ 
+}
+.nexts{
+  margin-left: 80em;
+
+}
+/* Adjust the size and styling of the Swiper navigation buttons */
+.custom-swiper-next,
+.custom-swiper-prev {
+  width: 10px; /* Set the desired width */
+  height: 10px; /* Set the desired height */
+  background-color: rgba(151, 59, 59, 0.8); /* Set the desired background color */
+  border-radius: 50%; /* Make the buttons circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  color: #000; /* Set the desired color for the icons */
+}
+
+.custom-swiper-next:hover,
+.custom-swiper-prev:hover {
+  background-color: rgba(255, 255, 255, 1); /* Set the desired background color on hover */
+}
+
+ .service {
+  border-radius: 20px 20px 20px 20px;
+ }
+
+ .subservice {
+   border-radius: 0 20px 0 20px;
+ }
+
+ .service1 {
+    border-radius: 0px 30px 0px 30px;
+    color: #e2dccf52;
+ }
+
+ img {
+  border-radius: 0px 30px 0px 30px;
+ }
+
+ .transition-opacity {
+  transition-property: opacity;
+  transition-duration: 0.3s; /* Adjust the duration as needed */
+}
+
+.hover-filter:hover {
+  filter: grayscale(80%); /* Apply 100% grayscale effect */
+}
+
+.newproduct{
+  border-radius: 20px 20px 20px 20px;
+}
+
+/*It is about the danse */
+/* Define the dance animation */
+/* Define the dance animation */
+@keyframes danceAnimation {
+  0%, 100% {
+    transform: translate(0,0px) rotate(-15deg);
+  }
+  25% {
+    transform: translate(0, -20px) rotate(15deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(0, -20px) rotate(-15deg);
+  }
+  
+}
+
+
+/* Apply the animation to the dancing icon */
+.WifiCalling3Icon {
+  animation: danceAnimation 2s infinite;
+}
+
+/* Style the container */
+.rfull {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/*Hover scale animation*/
+/* Style the icon container */
+.icon-container {
+  display: inline-block; /* Keep the container size to match the icon */
+}
+
+/* Define the shaking animation */
+@keyframes shakeAnimation {
+  0%, 100% {
+    transform: translateX(-10px) rotate(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-0.5px) rotate(-15deg);; /* Move left */
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px) rotate(15deg); /* Move right */
+  }
+}
+
+/* Define the shaking animation */
+@keyframes shopAnimation {
+  0%, 100% {
+    transform: translateX(0) rotate(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(0) rotate(-25deg); /* Move left */
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(0) rotate(25deg); /* Move right */
+  }
+}
+
+/* Apply the animation to the icon */
+.shaking-icon {
+  animation: shakeAnimation 2s infinite;
+}
+
+
+.shop-icon {
+  animation: shopAnimation 1.5s infinite;
+}
+.call {
+  font-size: 3.5em; /* Increase text size */
+  transform: rotate(-50deg); /* Rotate by 60 degrees */
+  /* Add any other desired styles */
+}
+.command {
+  font-size: 1.5em;/* Increase text size */
+  transform: rotate(-45deg); 
+}
+.livraison {
+  font-size: 2.5em;/* Increase text size */
+  transform: rotate(-45deg); 
+}
+
+.esthetique {
+  font-size: 2em;/* Increase text size */
+  transform: rotate(45deg); 
+}
+.shop1 {
+  font-size: 3em;/* Increase text size */
+  transform: rotate(40deg); 
+}
+.shop2 {
+  font-size: 3em;/* Increase text size */
+  transform: rotate(0deg); 
+}
+.shop3 {
+  font-size: 3em;/* Increase text size */
+  transform: rotate(0deg); 
+}
+.shop4 {
+  font-size: 3em;/* Increase text size */
+  transform: rotate(-30deg); 
+}
+
+/*Pour la livraison*/
+.icon-container1 {
+  display: flex;
+  justify-content: flex-start; /* Start from the left */
+  overflow: hidden; /* Hide the part of the icon that goes outside the container */
+}
+
+.livraison-icon {
+  font-size: 70px;
+  transition: transform 2s linear; /* Use the 'transform' property for the animation */
+  animation: moveRight 2s linear infinite; /* Optional: Use CSS keyframes for a continuous animation */
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0); /* Start from the left */
+  }
+  100% {
+    transform: translateX(100%); /* Move to the right */
+  }
+}
+
+/*Coiffure */
+/* Define the keyframes for the bounce animation */
+@keyframes bounce-needle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg); /* Start and end with no translation and no rotation */
+  }
+  20%, 80% {
+    transform: translateY(-15px) rotate(-10deg); /* Bounce up and rotate slightly counter-clockwise */
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg); /* Bounce down slightly and rotate slightly clockwise */
+  }
+}
+
+/* Apply the bounce animation to the .animation-container class */
+.coiffure{
+  animation: bounce-needle 3s ease infinite; /* Play the animation every 3 seconds */
+  font-size: 2em;/* Increase text size */
+  transform: rotate(45deg); 
+  width: 100px;
+  transform-origin: right center;
+}
+
+.image {
+  position: absolute;
+  width: 70%; /* Adjust image width as needed */
+  height: auto; /* Maintain aspect ratio */
+  top: 0; /* Position at the top */
+  right: 0; /* Position at the right side */
+  transform-origin: bottom right; /* Set the pivot point for rotation to the bottom right corner */
+  animation: bounce-rotate 3s ease infinite; /* Play the animation every 3 seconds */
+}
+
+/*Esthetique Scale*/
+@keyframes scal {
+  0%, 100% {
+    transform: scale(1);
+        }
+    20% {
+        transform: scale(1.5);
+    }
+25%, 75% {
+    transform: scale(1);
+    }
+}
+
+.imgesthetique {
+  animation: scal 6s infinite;
+}
+
+/* Define the combined animation */
+@keyframes imageAnimation {
+  0%, 100% {
+    transform: scale(1); /* Initial scale */
+  }
+  5% {
+    transform: scale(1.5) translateY(-10px); /* Quick shake upward */
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(0) rotate(-25deg); /* Move left */
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(0) rotate(25deg); /* Move right */
+  }
+}
+
+.offre {
+  animation: imageAnimation 10s infinite; /* Combined animation, 6s scale + 4s shake, repeat infinitely */
+}
+
+
+/*Concernant le deal*/
+.deal {
+  border-radius: 0 20px 0 20px;
+}
+.dprix 
+{
+  border-radius: 0 0 10px 0;
+}
+.dacheter{
+  margin-left:150px;
+  margin-top:-20px;
+  border-radius: 10px 0 0 0;
+}
+
+.cat {
+  border-radius:20px 20px 0 0 ;
+}
+.cat1{
+  border-radius: 0 0 20px 20px;
+}
+.category {
+  border-radius: 15px;
+}
+
+/*Border*/
+.a1{
+  border-radius: 0 50px 50px 0;
+  transform: rotate(30deg); 
+  margin-top: 150px;
+  margin-left: -57px;
+}
+
+.a2{
+  border-radius: 0 50px 50px 0;
+  transform: rotate(-30deg); 
+  margin-top: 12.3em;
+  margin-left: -57px;
+}
+
+.a3{
+  border-radius:  60% 60% 0 0;
+  transform: rotate(90deg); 
+  margin-top: 7.6em;
+  margin-left: -2.6em;
+}
+
+.a4{
+  border-radius:  50px 0 0 50px ;
+  transform: rotate(-35deg); 
+  margin-top: 1em;
+  margin-left: 11.85em;
+}
+
+.a5{
+  border-radius:  50px 0 0 50px ;
+  transform: rotate(35deg); 
+  margin-top: 0.35em;
+  margin-left: 11.2em;
+}
+
+.a6{
+  margin-top: 27em;
+  transform: rotate(90deg); 
+  margin-left: -10em;;
+  border-radius: 80px 80px 0 0 ;
+}
+.a7{
+  margin-top: 60em;
+   transform: rotate(90deg); 
+  margin-left: -10em;
+  border-radius: 80px 80px 0 0 ;
+}
+.a8{
+  margin-top: 27em;
+  transform: rotate(90deg);
+  margin-left: 17.45em;
+  border-radius: 200px 200px 0 0 ;
+}
+.a9{
+  margin-top: 60em;
+  transform: rotate(-90deg);
+  margin-left: 17.45em;
+  border-radius: 200px 200px 0 0 ;
+}
+.split{
+  transform: scaleX(-1);
+}
+.inscrit {
+  font-size: 16px;
+  margin-top: 15px;
+  
+  
+}
+
+.sing {
+  font-size: 12px;
+}
+.singa{
+  font-size: 12px;
+}
+
+.couleur {
+  font-size: 50px;
+}
+
+.ct{
+  color: #e2dfd9d8;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.carousel-control-button {
+  background-color: #007bff; /* Change the button background color */
+  color: #fff; /* Change the button text color */
+  padding: 10px 20px; /* Adjust the button padding as needed */
+  margin: 0 10px; /* Adjust the button margin as needed */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px; /* Adjust the button font size as needed */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-control-button:hover {
+  background-color: #0056b3; /* Change the button background color on hover */
+}
+
+/* You can add additional styling or customize as per your design */
+
+
+
+@media screen and (max-width:769px) {
+  .circle-container{
+    width: 400px!important; /* Adjust the width as needed for smaller screens */
+    height: 400px!important; /* Adjust the height as needed for smaller screens */
+    margin: 0 auto; /* Center horizontally within the parent container */
+    margin-top: 2%; /* Adjust the top margin as needed */
+
+  }
+
+
+  .image {
+    position: absolute;
+    top: 50%!important;
+    left: 50%!important;
+    width: 100px!important; /* Adjust image size as needed */
+    height: 100px!important; /* Adjust image size as needed */
+    margin-top: -100px!important; /* Half of the image height */
+    margin-left: -100px!important; /* Half of the image width */
+    background-color: transparent;
+    border-radius: 100%;
+    transform-origin: center;
+    will-change: transform, opacity; /* Hint for optimization */
+    transform: translate3d(0, 0, 0); /* GPU acceleration */
+    animation: moveAroundCircle 20s linear infinite;
+  }
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px!important; /* Adjust background image width */
+    height: 100px!important; /* Adjust background image height */
+    background-size: cover; /* or 'contain', depending on how you want the image to fit */
+    background-position: center center;
+    border-radius: 50%;
+  }  
+  .newproduct {
+      margin-top:55em;
+  }
+  .offer{
+     left: -34em;
+     top: 51em;
+  }
+  .offer > img{
+     width: 80px!important;
+  }
+  .offert {
+    left: -54em;
+    top:70em ;
+  }
+   .imaga {
+      top: 30px;
+   }
+   .dea {
+        height: 350px!important;
+   }
+  .deal {
+     margin-top: 20px!important;
+     margin-left: 20px;
+  }
+}
+
+.DFS{
+  color :#f97416;
+}
+
+.dashed-text::before {
+  content: "— "; /* Replace with the dash character you prefer */
+  color: black;    /* Change the color to your preference */
+  font-size: 80px; /* Adjust the font size as needed */
+}
+.dashed-text::after {
+  content: "— "; /* Replace with the dash character you prefer */
+  margin-left: 18px;
+  color: black;    /* Change the color to your preference */
+  font-size:80px; /* Adjust the font size as needed */
+}
+
+/* Add this to your Tailwind CSS styles */
+.hover-shadow:hover {
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+  transform: translate(0, -15px);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashed::before {
+  content: "— "; /* Replace with the dash character you prefer */
+  color: white;    /* Change the color to your preference */
+  font-size: 80px; /* Adjust the font size as needed */
+}
+
+
+

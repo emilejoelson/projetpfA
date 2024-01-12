@@ -5,6 +5,7 @@ import loginSignupImage from "./../../assest/login-animation.gif";
 import { ImagetoBase64 } from "../../utility/ImagetoBase64";
 import { toast } from "react-hot-toast";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
+import Footer from "../../components/Footer";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,33 +65,8 @@ const Signup = () => {
       ...prevData,
       password: inputValue
     }));
-
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[(!|,|?|.|;)@#$%^&*()]).{8,}$/;
-    const isValid = passwordRegex.test(inputValue);
-
-    if (inputValue === "") {
-      setMessagePassword("Remplir le champ vide");
-    } else if (isValid) {
-      setMessagePassword("Votre mot de passe est validé");
-    } else {
-      setMessagePassword("Votre mot de passe n'est pas validé. Le mot de passe doit contenir au moins 8 caractères, dont au moins un chiffre, une minuscule, une majuscule et un caractère spécial.");
-    }
   };
 
-  // Validation de confirmation de mot de passe
-  const handleChangeConfirmPassword = (e) => {
-    const inputValue = e.target.value;
-    setData(prevData => ({
-      ...prevData,
-      confirmPassword: inputValue
-    }));
-
-    if (inputValue === data.password) {
-      setMessageConfirmPassword("Les mots de passe correspondent");
-    } else {
-      setMessageConfirmPassword("Les mots de passe ne correspondent pas");
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -109,6 +85,16 @@ const Signup = () => {
 
         const dataRes = await fetchData.json();
         toast(dataRes.message);
+        setData(() => {
+          return {
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            image: ""
+          };
+        });
       } else {
         alert("Mot de passe et confirmation non identique");
       }
@@ -125,10 +111,107 @@ const Signup = () => {
       image: imageData
     }));
   };
-
+  const isMobile = window.innerWidth < 768;
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
-    <div className='p-3 md:p-4'>
-      <div className="w-full max-w-sm bg-slate-900 rounded my-[8%] ml-[35%] flex  flex-col p-4 ">
+    <div>
+    {
+      isMobile ?
+      (
+        <div className="mt-[9em] ">
+           <div className="w-full max-w-sm bg-slate-100  flex  flex-col p-4 ">
+              <div className="w-20 h-20 overflow-hidden rounded-full   m-auto relative ">
+                <img src={data.image ? data.image : loginSignupImage} className="w-full h-full" />
+
+                <label htmlFor="profileImage">
+                  <div className="absolute bottom-0 h-1/3  bg-slate-500 bg-opacity-50 w-full text-center cursor-pointer">
+                    <DriveFolderUploadIcon />
+                  </div>
+                  <input type="file" id="profileImage" accept="image/*" className="hidden" onChange={handleUploadProfileImage} />
+                </label>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="firstName" className="text-[#C49A45]">Nom</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                  value={data.firstName}
+                  onChange={handleOnChange}
+                />
+
+                <label htmlFor="lastName" className="text-[#C49A45]">Prénom</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                  value={data.lastName}
+                  onChange={handleOnChange}
+                />
+
+                <label htmlFor="email" className="text-[#C49A45]">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                  value={data.email}
+                  onChange={handleChangeEmail}
+                />
+                <div className="text-red-500 italic">{messageEmail}</div>
+
+                <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
+                <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    className="w-full  bg-white border-none outline-none"
+                    value={data.password}
+                    onChange={handleChangePassword}
+                  />
+                  <span className="flex text-xl cursor-pointer" onClick={handleShowPassword}>
+                    {showPassword ? <BiShow /> : <BiHide />}
+                  </span>
+                </div>
+                <div className="text-red-500 italic">{messagePassword}</div>
+                <label htmlFor="confirmPassword" className="text-[#C49A45]">Confirmation de mot de passe</label>
+                <div className="flex px-2 py-1 text-[#0A0A0A] bg-whiterounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    className="w-full  bg-white border-none outline-none"
+                    value={data.confirmPassword}
+                    onChange={handleOnChange}
+                  />
+                  <span className="flex text-xl cursor-pointer" onClick={handleShowConfirmPassword}>
+                    {showConfirmPassword ? <BiShow /> : <BiHide />}
+                  </span>
+                </div>
+
+                <button className="w-full max-w-[150px] m-auto  bg-[#C49A45] hover:bg-[#cfa756d8] cursor-pointer text- text-xl font-medium text-center py-1 rounded-full mt-4">
+                  S'inscrire
+                </button>
+              </form>
+              <p className="text-left text-sm mt-2 text-[#0A0A0A]">
+                Vous avez déjà un compte ?
+                <Link to={"/login"} onClick={scrollToTop} className="text-red-500  underline">
+                  Connectez-vous
+                </Link>
+              </p>
+            </div>
+            <Footer/>
+        </div>
+      )
+       :
+       (
+      <div className='p-3 bg-white md:p-4'>
+      <div className="w-full max-w-sm bg-slate-100 rounded my-[8%] ml-[35%] flex  flex-col p-4 ">
         <div className="w-20 h-20 overflow-hidden rounded-full   m-auto relative ">
           <img src={data.image ? data.image : loginSignupImage} className="w-full h-full" />
 
@@ -140,44 +223,44 @@ const Signup = () => {
           </label>
         </div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">Nom</label>
+          <label htmlFor="firstName" className="text-[#C49A45]">Nom</label>
           <input
             type="text"
             id="firstName"
             name="firstName"
-            className="mt-1 mb-2 w-full text-slate-300 bg-slate-500 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
             value={data.firstName}
             onChange={handleOnChange}
           />
 
-          <label htmlFor="lastName">Prénom</label>
+          <label htmlFor="lastName" className="text-[#C49A45]">Prénom</label>
           <input
             type="text"
             id="lastName"
             name="lastName"
-            className="mt-1 mb-2 w-full text-slate-300 bg-slate-500 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
             value={data.lastName}
             onChange={handleOnChange}
           />
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="text-[#C49A45]">Email</label>
           <input
             type="text"
             id="email"
             name="email"
-            className="mt-1 mb-2 w-full text-slate-300 bg-slate-500 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
             value={data.email}
             onChange={handleChangeEmail}
           />
           <div className="text-red-500 italic">{messageEmail}</div>
 
-          <label htmlFor="password">Mot de passe</label>
-          <div className="flex px-2 py-1 text-slate-300 bg-slate-500 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+          <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
+          <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
             <input
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className="w-full bg-slate-500 border-none outline-none"
+              className="w-full  bg-white border-none outline-none"
               value={data.password}
               onChange={handleChangePassword}
             />
@@ -186,13 +269,13 @@ const Signup = () => {
             </span>
           </div>
           <div className="text-red-500 italic">{messagePassword}</div>
-          <label htmlFor="confirmPassword">Confirmation de mot de passe</label>
-          <div className="flex px-2 py-1 text-slate-300 bg-slate-500 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+          <label htmlFor="confirmPassword" className="text-[#C49A45]">Confirmation de mot de passe</label>
+          <div className="flex px-2 py-1 text-[#0A0A0A] bg-whiterounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
             <input
               type={showConfirmPassword ? "text" : "password"}
               id="confirmPassword"
               name="confirmPassword"
-              className="w-full bg-slate-500 border-none outline-none"
+              className="w-full  bg-white border-none outline-none"
               value={data.confirmPassword}
               onChange={handleOnChange}
             />
@@ -201,17 +284,21 @@ const Signup = () => {
             </span>
           </div>
 
-          <button className="w-full max-w-[150px] m-auto  bg-red-500 hover:bg-red-600 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button className="w-full max-w-[150px] m-auto  bg-[#C49A45] hover:bg-[#cfa756d8] cursor-pointer text- text-xl font-medium text-center py-1 rounded-full mt-4">
             S'inscrire
           </button>
         </form>
-        <p className="text-left text-sm mt-2">
+        <p className="text-left text-sm mt-2 text-[#0A0A0A]">
           Vous avez déjà un compte ?
-          <Link to={"/login"} className="text-red-500 underline">
+          <Link to={"/login"} className="text-red-500  underline">
             Connectez-vous
           </Link>
         </p>
       </div>
+      </div>
+       )
+    }
+      
     </div>
   );
 };

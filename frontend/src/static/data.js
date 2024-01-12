@@ -593,51 +593,56 @@ export const navItems = [
   
   export const footerProductLinks = [
     {
-      name: "À propos de nous",
-      link: "/about"
+      name: "Qui sommes-nous?",
+      link: "/about",
     },
     {
-      name: "Carrières",
-      link: "/carrers"
+      name: "Coordonnées",
+      link: "https://www.google.com/maps/dir//Fiti+Fash+et+Design/@30.4042504,-9.6058355,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xdb3c97a857bba73:0x74207ea84a458dfd!2m2!1d-9.5234342!2d30.4042763?entry=ttu"
     },
     {
-      name: "Emplacements des magasins",
+      name: "Carrière chez Fitifash",
+      link: "/carrer_chez_fitifash"
+    },
+    
+    {
+      name: "Retour et remboursement",
+      link:"/politique_retour_remboursement"
     },
     {
-      name: "Notre blog",
-    },
-    {
-      name: "Commentaires",
+      name: "Temoignages",
+      link :"/temoignages_de_chaque_client"
     },
   ];
   
   export const footercompanyLinks = [
     {
-      name: "Jeu & Vidéo",
+      name: "Couture",
+      link:"/couture_dans_le_fitifash"
     },
     {
-      name: "Téléphone et Tablettes",
+      name: "Esthétique",
+      link :"/esthétique_dans_le_fitifash"
     },
     {
-      name: "Ordinateurs portable",
+      name: "Coiffure homme et femme",
+      link :"/coiffure_homme_femme"
     },
     {
-      name: "Montres de Sport",
+      name: "Vente de produit",
+      link:"/vente_produit"
     },
-    {
-      name: "Evennement",
-    },
+    
   ];
   
   export const footerSupportLinks = [
-    {
-      name: "",
-    },
+   
     {
       name: "Commentaires",
     },
     {
       name: "Contactez nous",
+      link :"/contact"
     },
     {
       name: "Expédition",

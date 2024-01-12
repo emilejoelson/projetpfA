@@ -1,6 +1,71 @@
+import { useDispatch, useSelector } from "react-redux";
 import { tokens } from "../theme";
+import { useEffect } from "react";
+import { fetchTotalPerDayThisWeek, fetchTotalPerMonthThisYear } from "../redux/moneySlide";
+import { Avatar } from "@mui/material";
 
-export const mockDataTeam = [
+const MockLineDataDay = () => {
+  const dispatch = useDispatch();
+
+  // Le jour dans une semaine
+  const Monday = useSelector((state) => state.money.Monday);
+  const Tuesday = useSelector((state) => state.money.Tuesday);
+  const Wednesday = useSelector((state) => state.money.Wednesday);
+  const Thursday = useSelector((state) => state.money.Thursday);
+  const Friday = useSelector((state) => state.money.Friday);
+  const Saturday = useSelector((state) => state.money.Saturday);
+  const Sunday = useSelector((state) => state.money.Sunday);
+
+  useEffect(() => {
+    dispatch(fetchTotalPerDayThisWeek());
+  }, [dispatch]);
+
+  const data = [
+    {
+      id: "fitifash",
+      color: tokens("dark").greenAccent[500],
+      data: [
+        {
+          x: "Mon",
+          y: Monday,
+        },
+        {
+          x: "Tue",
+          y: Tuesday,
+        },
+        {
+          x: "Wed",
+          y: Wednesday,
+        },
+        {
+          x: "Thu",
+          y: Thursday,
+        },
+        {
+          x: "Fri",
+          y: Friday,
+        },
+        {
+          x: "Sat",
+          y: Saturday,
+        },
+        {
+          x: "Sun",
+          y: Sunday,
+        },
+      ],
+    },
+  ];
+
+  return data;
+};
+
+
+
+export default MockLineDataDay;
+
+
+/* export const mockDataTeam = [
   {
     id: 1,
     name: "Jon Snow",
@@ -429,173 +494,11 @@ export const mockPieData = [
     color: "hsl(344, 70%, 50%)",
   },
 ];
+ */
 
-export const mockLineData = [
-  {
-    id: "p2M",
-    color: tokens("dark").greenAccent[500],
-    data: [
-      {
-        x: "Jan",
-        y: 1000,
-      },
-      {
-        x: "Fev",
-        y: 2000,
-      },
-      {
-        x: "Mars",
-        y: 3000,
-      },
-      {
-        x: "Avril",
-        y: 3500,
-      },
-      {
-        x: "Mai",
-        y: 5000,
-      },
-      {
-        x: "Juin",
-        y: 500,
-      },
-      {
-        x: "Jul",
-        y: 16000,
-      },
-      {
-        x: "Aout",
-        y: 6000,
-      },
-      {
-        x: "Sept",
-        y: 7000,
-      },
-      {
-        x: "Oct",
-        y: 8000,
-      },
-      {
-        x: "Nov",
-        y: 20000,
-      },
-      {
-        x: "Dec",
-        y: 15000,
-      },
-    ],
-  },
-  /*{
-    id: "france",
-    color: tokens("dark").blueAccent[300],
-    data: [
-      {
-        x: "plane",
-        y: 212,
-      },
-      {
-        x: "helicopter",
-        y: 190,
-      },
-      {
-        x: "boat",
-        y: 270,
-      },
-      {
-        x: "train",
-        y: 9,
-      },
-      {
-        x: "subway",
-        y: 75,
-      },
-      {
-        x: "bus",
-        y: 175,
-      },
-      {
-        x: "car",
-        y: 33,
-      },
-      {
-        x: "moto",
-        y: 189,
-      },
-      {
-        x: "bicycle",
-        y: 97,
-      },
-      {
-        x: "horse",
-        y: 87,
-      },
-      {
-        x: "skateboard",
-        y: 299,
-      },
-      {
-        x: "others",
-        y: 251,
-      },
-    ],
-  },
-  {
-    id: "us",
-    color: tokens("dark").redAccent[200],
-    data: [
-      {
-        x: "plane",
-        y: 191,
-      },
-      {
-        x: "helicopter",
-        y: 136,
-      },
-      {
-        x: "boat",
-        y: 91,
-      },
-      {
-        x: "train",
-        y: 190,
-      },
-      {
-        x: "subway",
-        y: 211,
-      },
-      {
-        x: "bus",
-        y: 152,
-      },
-      {
-        x: "car",
-        y: 189,
-      },
-      {
-        x: "moto",
-        y: 152,
-      },
-      {
-        x: "bicycle",
-        y: 8,
-      },
-      {
-        x: "horse",
-        y: 197,
-      },
-      {
-        x: "skateboard",
-        y: 107,
-      },
-      {
-        x: "others",
-        y: 170,
-      },
-    ],
-  },*/
-];
 
-export const mockGeographyData = [
+
+/* export const mockGeographyData = [
   {
     id: "AFG",
     value: 520600,
@@ -1280,4 +1183,4 @@ export const mockGeographyData = [
     id: "KOR",
     value: 171135,
   },
-];
+]; */

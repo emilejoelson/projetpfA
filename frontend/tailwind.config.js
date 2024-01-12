@@ -6,6 +6,16 @@ module.exports = {
     fontFamily: {
       Roboto: ["Roboto", "sans-serif"],
       Poppins: ['Poppins', "sans-serif"],
+      bahnschrift: ['Bahnschrift', 'sans-serif'],
+      'arial-black': ['Arial Black', 'sans-serif'],
+      'arial-narrow': ['Arial Narrow', 'sans'],
+      'comic-sans': ['Comic Sans MS', 'cursive'],
+       arial: ['Arial', 'sans-serif'],
+       'ms-gothic': ['"MS Gothic"', 'sans-serif'],
+       sans: ['Liberation Sans Narrow', 'sans-serif'],
+       'great-vibes': ['Great Vibes', 'cursive'],
+       'script': ['"Script MT Bold"', 'cursive'],
+       'palatino': ['Palatino Linotype', 'serif'],
     },
     extend: {
       screens: {

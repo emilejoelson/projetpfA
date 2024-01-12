@@ -1,0 +1,160 @@
+.card {
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  width: 14rem; /* equivalent to w-56 in Tailwind */
+  height: 20rem; /* equivalent to h-80 in Tailwind */
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  perspective: 800px; /* Adjust the perspective for 3D depth */
+}
+
+.card:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateZ(-30px); /* Adjust thickness here */
+  z-index: -1;
+}
+
+.images-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.images-wrapper {
+  display: flex;
+  transition: transform 1s linear;
+  white-space: nowrap;
+  gap : 100px
+}
+
+.images-wrapper.scroll {
+  animation: scrollImages 20s linear infinite;
+}
+
+.images-wrapper img {
+  width: 100px; /* Adjust image width as needed */
+  height: auto;
+  margin-right: 20px; /* Add space between images if desired */
+}
+
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Define the animation */
+@keyframes moveAroundCircle {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* Apply optimizations and animation to the element */
+.image {
+  position: absolute;
+  top: 56%;
+  left: 55%;
+  width: 200px; /* Adjust image size as needed */
+  height: 200px; /* Adjust image size as needed */
+  margin-top: -100px; /* Half of the image height */
+  margin-left: -100px; /* Half of the image width */
+  background-color: transparent;
+  border-radius: 100%;
+  transform-origin: center;
+  will-change: transform, opacity; /* Hint for optimization */
+  transform: translate3d(0, 0, 0); /* GPU acceleration */
+  animation: moveAroundCircle 20s linear infinite;
+}
+
+.sain{
+
+  color: #706040d8;
+}
+/* Container styles */
+.circle-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Change to 'hidden' to prevent overflow issues */
+  margin-left: 28%;
+  margin-top: 10%;
+  border-radius: 50%;
+  border: 15px solid #0A0A0A  ;
+ 
+}
+.formul{
+  border:2px solid #8B7355 ;
+  border-radius: 15px;
+}
+
+/* 
+// Other optimizations beyond this point...
+
+// Implement code splitting and lazy loading of components if possible.
+// Optimize and compress any images used in your application.
+// Minimize and bundle your JavaScript and CSS files.
+// Profile your components to avoid unnecessary re-renders.
+// Implement proper error handling to prevent unexpected issues.
+ */
+  
+  .circle {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: rebeccapurple;
+   
+  }
+  
+
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px; /* Adjust background image width */
+    height: 150px; /* Adjust background image height */
+    background-size: cover; /* or 'contain', depending on how you want the image to fit */
+    background-position: center center;
+    border-radius: 50%;
+  }  
+  
+  .sing {
+    border-radius: 30px;
+  }
+
+  .update{
+    border-radius: 20px;
+  }

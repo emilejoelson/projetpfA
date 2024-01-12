@@ -1,88 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addCartItem,increaseQty } from "../redux/productSlide";
+import { addCartItem } from "../redux/productSlide";
 import { Typography } from "@mui/material";
-import { useTheme } from "@emotion/react";
-import { tokens } from "../theme";
-
+import "./HomeCard.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsEyeFill } from "react-icons/bs";
-const CardFeature = ({ image, name, price, category, loading, id }) => {
-  const dispatch = useDispatch()
 
-  const handleAddCartProduct = (e) => {
-    dispatch(addCartItem({
-      _id : id,
-      name : name,
-      price : price,
-      category : category,
-      image : image
-    }))
+const CardFeature = ({
+  image,
+  name,
+  price,
+  category,
+  subcategory,
+  subcategory1,
+  subcategory2,
+  id,
+}) => {
+  const dispatch = useDispatch();
+  const [hovered, setHovered] = useState(false);
+
+  const handleAddCartProduct = () => {
+    dispatch(
+      addCartItem({
+        _id: id,
+        name: name,
+        price: price,
+        category: category,
+        image: image,
+      })
+    );
   };
 
-   ///  Theme 
-   const theme = useTheme();
-   const colors = tokens(theme.palette.mode);
+  const isMobile = window.innerWidth < 768;
 
   return (
-    <div className="bg-slate-800 shadow-md p-2 hover:scale-105 transition-all rounded min-w-[150px]  ">
-  {/* bg-slate-800 shadow-md p-2 rounded min-w-[150px] */}
-      {image ? (
-        <>
-          <Link
-            to={`/menu/${id}`}
-            onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
-          >
-            <div className="h-28 flex flex-col justify-center items-center">
-              <img src={image} className="hover:scale-105 transition-all h-full" />
-            </div>
-            <Typography variant="h4"
-                fontWeight="bold"
-                color ={colors.greenAccent[500]}
-                sx={{ p: "15px 0px 4px 0" }}
-            >
-              {name}
-            </Typography>
-            <p className=" text-slate-500  font-medium">{category}</p>
-            <p className=" font-bold">
-              <span>{price}{" "}</span>
-              <span className="text-red-500">dh</span>
-            </p>
-            {/* bg-sky-900 py-1 mt-2 rounded hover:bg-yellow-600 min-w-[100px] */}
-          </Link>
-          <div className="py-2">
-               
-              <button className="mr-8  rounded w-7">
+    <div>
+      {
+        isMobile ? 
+        (
+          
               <Link
-                  to={`/menu/${id}`}
-                  onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
+                to={`/menu/${id}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="h-40 flex flex-col justify-center items-center"
               >
-                  <BsEyeFill 
-                    size={24}
-                    color="rgb(255 255 255 / 83%)"
-                  />
-                </Link>
-              
-              </button>
-             
-              <button
-                
-                onClick={handleAddCartProduct}
-              >
-                <AiOutlineShoppingCart
-                   size={24}
-                   color="rgb(255 255 255 / 83%)"
+                <img
+                  src={image}
+                  className={`h-[140px] transition-all w-4/5 `}
+                  alt={name}
+                  style={{borderRadius:"15px",border:"2px solid #333333"}}
                 />
-              </button>
+              </Link>
+        )
+        :
+        (
+          <div
+      className="homecard bg-slate-100 shadow-md ml-[-70px] p-2 transition-all rounded w-60 h-75 flex flex-col justify-between mx-10"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Link
+        to={`/menu/${id}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="h-40 flex flex-col justify-center items-center"
+      >
+        <img
+          src={image}
+          className={`h-[150px] transition-all w-full ${
+            hovered ? "hover:scale-105" : ""
+          }`}
+          alt={name}
+        />
+      </Link>
+      {hovered && (
+        <div className="flex flex-col justify-between h-2/5">
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            color="#C49A45"
+            sx={{ p: "15px 0px 4px 0" }}
+            className="text-center "
+          >
+            <div className="font-great-vibes text-2xl md:text-3xl">{name}</div>
+          </Typography>
+          <p className="text-slate-500 font-medium">{category}</p>
+          <p className="text-slate-500 font-medium">{subcategory}</p>
+          <p className="text-slate-500 font-medium">{subcategory1}</p>
+          <p className="text-slate-500 font-medium">{subcategory2}</p>
+          <p className="">
+            {typeof price === 'string' ? (
+              <span>
+                <span className="text-red-500 line-through font-italic">{parseFloat(price).toFixed(2)} dh </span>
+                <span className="text-[#0A0A0A]">{(parseFloat(price) * 0.8).toFixed(2)} dh </span>
+              </span>
+            ) : (
+              <span>Price not available</span>
+            )}
+          </p>
+
+          <div className="py-2 flex justify-center items-center">
+            <button className="mr-8 rounded">
+              <Link
+                to={`/menu/${id}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="text-white"
+              >
+                <BsEyeFill size={24} color="#cfa756d8" />
+              </Link>
+            </button>
+            <button onClick={handleAddCartProduct}>
+              <AiOutlineShoppingCart size={24} color="#cfa756d8" />
+            </button>
           </div>
-        </>
-      ) : (
-        <div className="min-h-[150px] flex justify-center items-center">
-          <p>{loading}</p>
         </div>
       )}
     </div>
+        )
+      }
+    </div>
+    
   );
 };
 

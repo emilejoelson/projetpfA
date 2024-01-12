@@ -1,0 +1,54 @@
+
+ .allproduct {
+     border-radius: 20px;
+ }
+
+ .filterproduct {
+    border-radius: 100px 100px 0 0 ;
+ }
+
+ /* Add this CSS to your existing stylesheet */
+.swiper-container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1%; /* Adjust the padding as needed */
+  }
+
+  .prevs {
+    margin-left: 10em;
+   
+  }
+  .nexts{
+    margin-left: 80em;
+  
+  }
+
+  .dashed-text::before {
+    content: "— "; /* Replace with the dash character you prefer */
+    color: black;    /* Change the color to your preference */
+    font-size: 80px; /* Adjust the font size as needed */
+  }
+  .dashed-text::after {
+    content: "— "; /* Replace with the dash character you prefer */
+    margin-left: 18px;
+    color: black;    /* Change the color to your preference */
+    font-size:80px; /* Adjust the font size as needed */
+  }
+
+@media screen and (max-width :"768") {
+  .dashed-text::before {
+    content: "— "; /* Replace with the dash character you prefer */
+    color: black;    /* Change the color to your preference */
+    font-size: 16px; /* Adjust the font size as needed */
+  }
+  .dashed-text::after {
+    content: "— "; /* Replace with the dash character you prefer */
+    margin-left: 10px;
+    color: black;    /* Change the color to your preference */
+    font-size:16px; /* Adjust the font size as needed */
+  }
+  .filterproduct {
+    border-radius: 20px 20px 0 0 ;
+ }
+}

@@ -1,7 +1,7 @@
 import { useTheme } from '@emotion/react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button} from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { tokens } from '../../theme';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
@@ -27,7 +27,6 @@ function Disproduct() {
   const handleSave = (productId) => {
     setSelectedProduct(productId);
     setIsEditFormVisible(false);
-    // Perform any additional logic after saving the product
   };
 
   const handleCancel = () => {
@@ -36,8 +35,10 @@ function Disproduct() {
   };
 
   const dispatch = useDispatch();
-  const productData = useSelector((state) => state.product.productList);
+  const productData = useSelector((state) =>state.product.productList);
   console.log("Produits : "+ productData);
+
+  
 
   const handleDelete = (productId) => {
     fetch(`${process.env.REACT_APP_SERVER_DOMIN}/deleteproduct/${productId}`, {
@@ -93,6 +94,7 @@ function Disproduct() {
     { field: 'image', headerName: 'Produit', headerAlign: 'center', renderCell: ImageCell },
     { field: 'name', headerName: 'Designation', headerAlign: 'center', cellClassName: 'name-column--cell' },
     { field: 'category', headerName: 'Categorie' },
+    { field: 'subcategory', headerName: 'SousCategorie' },
     { field: 'price', headerName: 'Prix', type: 'number', width: 50, headerAlign: 'center' },
     { field: 'description', headerName: 'Description' },
     { field: 'actions', headerName: 'Actions', width: 215, headerAlign: 'center', renderCell: ActionsCell },
@@ -129,7 +131,7 @@ function Disproduct() {
           '& .MuiCheckbox-root': {
             color: `${colors.greenAccent[200]} !important`,
           },
-          width: '92%'
+          width: '97%'
         }}
       >
         <DataGrid checkboxSelection rows={productData} getRowId={getRowId} columns={columns} />
@@ -140,5 +142,6 @@ function Disproduct() {
     </Box>
   );
 }
+
 
 export default Disproduct;

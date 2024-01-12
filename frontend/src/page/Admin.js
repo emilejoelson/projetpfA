@@ -6,11 +6,14 @@ import Sidebar from './scenes/global/Sidebar';
 import { Routes,Route } from 'react-router-dom';
 import Topbar from './scenes/global/Topbar';
 import './../index.css';
-import Newproduct from './product/Newproduct';
-import { Router } from '@mui/icons-material';
 import Manageproduct from './Manageproduct';
 import Manageuser from './Manageuser';
 import Dashboarda from './dashboard';
+import Managechat from './Managechat';
+import Managewhatsapp from './Managewhatsapp';
+import Managedealdujour from './Managedealdujour';
+import Manageuserlocal from './Manageuserlocal';
+import Managedevis from './Managedevis';
 
 function Admin() {
     const [theme, colorMode] = useMode();
@@ -27,6 +30,11 @@ function Admin() {
                           <Routes>
                                 <Route path="manageproduct" element={<Manageproduct />} />
                                 <Route path="manageuser" element={<Manageuser />} />
+                                <Route path="managechat" element={<Managechat />} />
+                                <Route path="managewhatsapp" element={<Managewhatsapp />} />
+                                <Route path="managedealdujour" element={<Managedealdujour />} />
+                                <Route path="manageuserlocal" element={<Manageuserlocal />} />
+                                <Route path="managedevis" element={<Managedevis />} />
                                 <Route path="/" element={<Dashboarda />} />
                           </Routes>
                     </main>

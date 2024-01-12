@@ -1,0 +1,68 @@
+.imgdb{
+   border-radius: 12px;
+}
+
+/* Styling for the custom Swiper slides */
+.custom-slide {
+   background-color: #ffffff; /* Background color for the slides */
+   border-radius: 8px; /* Rounded corners for the slides */
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for the slides */
+   overflow: hidden; /* Hide overflow content */
+   position: relative; /* Position relative for child elements */
+ }
+ 
+ /* Style for product images */
+ .custom-slide img {
+   max-width: 100%; /* Ensure images don't exceed the width of the slide */
+   height: auto; /* Maintain image aspect ratio */
+ }
+ 
+ /* Adjust the size and position of the product in the center */
+ .custom-slide .centered-product {
+   /* Add your custom styles to center the product here */
+   /* For example, you can use absolute positioning and transform properties */
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 2; /* Ensure the center product is above the others */
+ }
+ 
+ /* Style for products on the left and right */
+ .custom-slide .side-product {
+   /* Add your custom styles for side products here */
+   /* For example, you can reduce their height and move them partially off the slide */
+   position: absolute;
+   top: 50%;
+   z-index: 1; /* Ensure the side products are below the center product */
+   /* You can also use 'left' and 'right' to position them */
+ }
+ 
+ /* Adjust the size and position of the product on the left */
+ .custom-slide .left-product {
+   /* Add your custom styles for the left product here */
+   left: 0;
+   transform: translate(0, -50%);
+   /* You can reduce the height or apply other styles as needed */
+ }
+ 
+ /* Adjust the size and position of the product on the right */
+ .custom-slide .right-product {
+   /* Add your custom styles for the right product here */
+   right: 0;
+   transform: translate(0, -50%);
+   /* You can reduce the height or apply other styles as needed */
+ }
+ 
+ .cfemme{
+  border-radius: 15px;
+ }
+ .c1{
+  border-radius: 5px 5px 0 0 ;
+ }
+ .c2{
+  border-radius: 0 0 5px 5px ;
+ }
+ .rdv{
+   border-radius: 5px 0 20px 0 ;
+ }

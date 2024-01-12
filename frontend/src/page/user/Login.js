@@ -7,6 +7,8 @@ import {toast} from "react-hot-toast"
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../../redux/userSlice";
+import { isLoggedIn } from "./Auth";
+import Footer from "../../components/Footer";
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
@@ -59,62 +61,132 @@ const Login = () => {
         }, 1000);
       }
       console.log(userData)
+      // Update the isLoggedIn state in local storage
+      localStorage.setItem("isLoggedIn", "true");
     }
     else{
         alert("Veuillez saisir les champs !")
     }
   }
-
+  const isMobile = window.innerWidth < 768;
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
-    <div className="p-3 md:p-4">
-    <div className="w-full max-w-sm bg-slate-900 rounded my-[10%] ml-[35%] flex  flex-col p-4">
-      {/* <h1 className='text-center text-2xl font-bold'>Sign up</h1> */}
-      <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto">
-        <img src={loginSignupImage} className="w-full" />
-      </div>
+    <div>
+      {
+        isMobile?
+        (
+          <div className="mt-[9em]">
+               <div className="w-full max-w-sm bg-slate-100  flex  flex-col p-4">
+                  {/* <h1 className='text-center text-2xl font-bold'>Sign up</h1> */}
+                  <div className="w-20 overflow-hidden  rounded-full drop-shadow-md shadow-md m-auto">
+                    <img src={loginSignupImage} className="w-full" />
+                  </div>
 
-      <form className="w-full py-3 flex flex-col" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type={"email"}
-          id="email"
-          name="email"
-          className="mt-1 mb-2 w-full text-slate-300 bg-slate-500 px-2 py-1 rounded focus-within:outline-blue-300"
-          value={data.email}
-          onChange={handleOnChange}
+                  <form className="w-full py-3 flex flex-col" onSubmit={handleSubmit}>
+                    <label htmlFor="email" className="text-[#C49A45]">Email</label>
+                    <input
+                      type={"email"}
+                      id="email"
+                      name="email"
+                      className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                      value={data.email}
+                      spellCheck="false"
+                      onChange={handleOnChange}
 
-        />
+                    />
 
-        <label htmlFor="password">Mot de passe</label>
-        <div className="flex px-2 py-1 text-slate-300 bg-slate-500 bg-slate-200 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            name="password"
-            className=" w-full   bg-slate-500 border-none outline-none "
-            value={data.password}
-            onChange={handleOnChange}
-          />
-          <span
-            className="flex text-xl cursor-pointer"
-            onClick={handleShowPassword}
-          >
-            {showPassword ? <BiShow /> : <BiHide />}
-          </span>
-        </div>
+                    <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
+                    <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        name="password"
+                        className=" w-full  bg-white border-none outline-none "
+                        value={data.password}
+                        spellCheck="false"
+                        onChange={handleOnChange}
+                      />
+                      <span
+                        className="flex text-xl cursor-pointer"
+                        onClick={handleShowPassword}
+                      >
+                        {showPassword ? <BiShow /> : <BiHide />}
+                      </span>
+                    </div>
 
-        <button className="w-full max-w-[150px] m-auto  bg-red-500 hover:bg-red-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
-          Se connecter
-        </button>
-      </form>
-      <p className="text-left text-sm mt-2">
-        Vous n'avez pas de compte ?{" "}
-        <Link to={"/singup"} className="text-red-500 underline">
-          Inscrivez-vous 
-        </Link>
-      </p>
+                    <button className="w-full max-w-[150px] m-auto  bg-[#C49A45] hover:bg-[#cfa756d8] cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+                      Se connecter
+                    </button>
+                  </form>
+                  <p className="text-left text-[#0A0A0A] text-sm mt-2">
+                    Vous n'avez pas de compte ?{" "}
+                    <Link to={"/singup"} onClick={scrollToTop} className="text-red-500 underline">
+                      Inscrivez-vous 
+                    </Link>
+                  </p>
+                </div>
+                <Footer/>
+          </div>
+        )
+         :
+         (
+          <div className="p-3 md:p-4 bg-white">
+            <div className="w-full max-w-sm bg-slate-100 rounded my-[10%] ml-[35%] flex  flex-col p-4">
+              {/* <h1 className='text-center text-2xl font-bold'>Sign up</h1> */}
+              <div className="w-20 overflow-hidden  rounded-full drop-shadow-md shadow-md m-auto">
+                <img src={loginSignupImage} className="w-full" />
+              </div>
+
+              <form className="w-full py-3 flex flex-col" onSubmit={handleSubmit}>
+                <label htmlFor="email" className="text-[#C49A45]">Email</label>
+                <input
+                  type={"email"}
+                  id="email"
+                  name="email"
+                  className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                  value={data.email}
+                  spellCheck="false"
+                  onChange={handleOnChange}
+
+                />
+
+                <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
+                <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    className=" w-full  bg-white border-none outline-none "
+                    value={data.password}
+                    spellCheck="false"
+                    onChange={handleOnChange}
+                  />
+                  <span
+                    className="flex text-xl cursor-pointer"
+                    onClick={handleShowPassword}
+                  >
+                    {showPassword ? <BiShow /> : <BiHide />}
+                  </span>
+                </div>
+
+                <button className="w-full max-w-[150px] m-auto  bg-[#C49A45] hover:bg-[#cfa756d8] cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+                  Se connecter
+                </button>
+              </form>
+              <p className="text-left text-[#0A0A0A] text-sm mt-2">
+                Vous n'avez pas de compte ?{" "}
+                <Link to={"/singup"} className="text-red-500 underline">
+                  Inscrivez-vous 
+                </Link>
+              </p>
+            </div>
+          </div>
+         )
+      }
     </div>
-  </div>
+    
   )
 }
 
